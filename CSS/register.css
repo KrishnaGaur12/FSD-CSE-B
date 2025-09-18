@@ -1,0 +1,366 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a0033 25%, #330066 50%, #000000 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ANIMATED STARFIELD BACKGROUND */
+.space-container {
+    position: relative;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.stars, .stars2, .stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.stars {
+    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="%23fff"/><circle cx="80" cy="40" r="0.5" fill="%23fff"/><circle cx="40" cy="60" r="1" fill="%23fff"/><circle cx="90" cy="80" r="0.5" fill="%23fff"/><circle cx="10" cy="90" r="1" fill="%23fff"/></svg>') repeat;
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+.stars2 {
+    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="70" cy="10" r="0.5" fill="%2300ffff"/><circle cx="30" cy="30" r="1" fill="%23ff00ff"/><circle cx="60" cy="70" r="0.5" fill="%2300ff00"/><circle cx="15" cy="50" r="1" fill="%23ffff00"/></svg>') repeat;
+    animation: twinkle 2s ease-in-out infinite alternate-reverse;
+    transform: scale(1.5);
+}
+
+.stars3 {
+    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="25" r="0.5" fill="%23ff6600"/><circle cx="85" cy="65" r="1" fill="%236600ff"/></svg>') repeat;
+    animation: twinkle 4s ease-in-out infinite;
+    transform: scale(0.5);
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* MAIN FORM CONTAINER */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 
+        0 0 50px rgba(0, 255, 255, 0.3),
+        inset 0 0 50px rgba(0, 255, 255, 0.1),
+        0 0 100px rgba(255, 0, 255, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00ffff, #ff00ff, #000000, );
+    border-radius: 22px;
+    z-index: -1;
+    animation: rainbow-border 3s linear infinite;
+}
+
+@keyframes rainbow-border {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* FORM TITLE */
+.form-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #00ffff;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 30px #00ffff;
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    text-align: center;
+    color: #ff00ff;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-style: italic;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+@keyframes glow-pulse {
+    0% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; }
+    100% { text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff, 0 0 35px #00ffff; }
+}
+
+/* TABLE STYLING */
+.registration-table {
+    width: 100%;
+    border-spacing: 15px;
+}
+
+.registration-table td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+/* LABELS */
+label {
+    color: #00ff00;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px #00ff00;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+label:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    transform: scale(1.05);
+}
+
+/* INPUT FIELDS */
+input[type="text"], 
+input[type="email"], 
+input[type="date"], 
+textarea, 
+select {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: 'Rajdhani', sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="date"]:focus, 
+textarea:focus, 
+select:focus {
+    border-color: #ff00ff;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 255, 0.5),
+        inset 0 0 20px rgba(255, 0, 255, 0.1);
+    transform: scale(1.02);
+    background: rgba(255, 0, 255, 0.1);
+}
+
+input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* RADIO BUTTONS */
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    accent-color: #00ffff;
+    cursor: pointer;
+}
+
+input[type="radio"] + label {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* SELECT DROPDOWNS */
+select {
+    cursor: pointer;
+}
+
+select option {
+    background: #000;
+    color: #00ffff;
+    padding: 10px;
+}
+
+/* TEXTAREA */
+textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* FILE INPUT */
+input[type="file"] {
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px dashed #00ffff;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+    background: rgba(255, 0, 255, 0.1);
+    border-color: #ff00ff;
+    transform: scale(1.02);
+}
+
+/* SUBMIT BUTTON */
+#submit-btn {
+    background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+    color: #000;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+    animation: button-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes button-glow {
+    0% { 
+        box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+        transform: translateY(0);
+    }
+    100% { 
+        box-shadow: 0 8px 30px rgba(255, 0, 255, 0.5);
+        transform: translateY(-2px);
+    }
+}
+
+#submit-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 
+        0 10px 40px rgba(0, 255, 255, 0.6),
+        0 0 50px rgba(255, 0, 255, 0.4);
+    animation: none;
+}
+
+#submit-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 255, 255, 0.8);
+}
+
+/* FUNNY HOVER EFFECTS */
+.registration-table tr:hover {
+    background: rgba(0, 255, 255, 0.05);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .form-container {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    .form-title {
+        font-size: 1.8rem;
+    }
+    
+    .registration-table {
+        border-spacing: 8px;
+    }
+    
+    .registration-table td {
+        display: block;
+        width: 100%;
+        padding: 5px;
+    }
+    
+    .registration-table tr {
+        display: block;
+        margin-bottom: 15px;
+        background: rgba(0, 255, 255, 0.05);
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+
+/* LOADING ANIMATION FOR FORM */
+.futuristic-form {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FUN EMOJI ADDITIONS */
+label::before {
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+label[for="name"]::before { content: "👤 "; }
+label[for="email"]::before { content: "📧 "; }
+label[for="Mobno"]::before { content: "📱 "; }
+label[for="dob"]::before { content: "🎂 "; }
+label[for="gender"]::before { content: "🚻 "; }
+label[for="branch"]::before { content: "🎓 "; }
+label[for="sem"]::before { content: "📚 "; }
+label[for="address"]::before { content: "🏠 "; }
+label[for="photo"]::before { content: "📸 "; }
+
+/* SUCCESS MESSAGE STYLING */
+.success-message {
+    background: linear-gradient(45deg, #00ff00, #00ffff);
+    color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px 0;
+    animation: success-bounce 0.5s ease-out;
+}
+
+@keyframes success-bounce {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
