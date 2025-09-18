@@ -1,51 +1,41 @@
-function waitForTwoSeconds(callback) {
-  setTimeout(callback, 2000); 
-}
-
-function register(next) {
-  waitForTwoSeconds(() => {
-    console.log("register end");
-    next();
+function waitForTwoSeconds() {
+  return new Promise(resolve => {
+    setTimeout(resolve, 2000); 
   });
 }
 
-function sendEmail(next) {
-  waitForTwoSeconds(() => {
-    console.log("email end");
-    next();
-  });
+async function register() {
+  await waitForTwoSeconds();
+  console.log("register end");
 }
 
-function login(next) {
-  waitForTwoSeconds(() => {
-    console.log("login end");
-    next();
-  });
+async function sendEmail() {
+  await waitForTwoSeconds();
+  console.log("email end");
 }
 
-function getData(next) {
-  waitForTwoSeconds(() => {
-    console.log("data end");
-    next();
-  });
+async function login() {
+  await waitForTwoSeconds();
+  console.log("login end");
 }
 
-function displayData(next) {
-  waitForTwoSeconds(() => {
-    console.log("Display end");
-    next();
-  });
+async function getData() {
+  await waitForTwoSeconds();
+  console.log("data end");
 }
 
-// Start the chain
-register(() => {
-  sendEmail(() => {
-    login(() => {
-      getData(() => {
-        displayData(() => {
-          console.log("other Application");
-        });
-      });
-    });
-  });
-});
+async function displayData() {
+  await waitForTwoSeconds();
+  console.log("Display end");
+}
+
+async function main() {
+  await register();
+  await sendEmail();
+  await login();
+  await getData();
+  await displayData();
+  console.log("other Application");
+}
+
+main();
