@@ -25,7 +25,7 @@ const booklist=books.map(p=>(
 const bookele=React.createElement("div",{className:"bookList"},booklist);
 
 const parent=document.getElementById("root");
-// ReactDOM.render(child,parent); changed in react 19
+
 const root=ReactDOM.createRoot(parent);
 
 root.render(bookele);
