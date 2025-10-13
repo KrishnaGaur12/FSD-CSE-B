@@ -1,11 +1,10 @@
 function Book(props){
     return(
         <div className="card">
-            <img src={props.image} width="150" height="150" alt="book-image"/>
-            <h4>Price: {props.price}/-</h4>
+            <img src={props.image} width="150" height="150" alt="book"/>
+            <h4>Price: {props.price}</h4>
         </div>
     )
-
     // const image=React.createElement("img",
     //     {
     //         src: props.image,
@@ -14,10 +13,13 @@ function Book(props){
     //         alt:"book-image"
     //     },null
     // );
+
     // const h4=React.createElement("h4",null,"Price:"+props.price+"/-");
+
     // const child=React.createElement("div",{
     //     className: "card"
     // },image,h4);
+
     // return (child);
 } 
 // const books=[{image:"https://tse2.mm.bing.net/th/id/OIP.RM5JkPJFCnEs3bCJnjK7dwAAAA?pid=Api&P=0&h=180",price: "123"},
@@ -31,11 +33,12 @@ function Book(props){
 
 // const bookele=React.createElement("div",{className:"bookList"},booklist);
 
-// const parent=document.getElementById("root");
-// // ReactDOM.render(child,parent); changed in react 19
-// const root=ReactDOM.createRoot(parent);
-// // root.render(React.createElement(Book,{
-// //     image:"https://tse4.mm.bing.net/th/id/OIP.YSJE-m47WRFAFX1JP1r2jgHaL3?pid=Api&P=0&h=180",
-// //     price:"345/-"
-// // }));
+const parent=document.getElementById("root");
+// ReactDOM.render(child,parent); changed in react 19
+const root=ReactDOM.createRoot(parent);
+root.render(<Book image="https://tse2.mm.bing.net/th/id/OIP.RM5JkPJFCnEs3bCJnjK7dwAAAA?pid=Api&P=0&h=180" price="521/-"/>);
+// root.render(React.createElement(Book,{
+//     image:"https://tse4.mm.bing.net/th/id/OIP.YSJE-m47WRFAFX1JP1r2jgHaL3?pid=Api&P=0&h=180",
+//     price:"345/-"
+// }));
 // root.render(bookele);
