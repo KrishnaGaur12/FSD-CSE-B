@@ -25,7 +25,10 @@ const booklist=books.map(p=>(
 const bookele=React.createElement("div",{className:"bookList"},booklist);
 
 const parent=document.getElementById("root");
-
+// ReactDOM.render(child,parent); changed in react 19
 const root=ReactDOM.createRoot(parent);
-
+// root.render(React.createElement(Book,{
+//     image:"https://tse4.mm.bing.net/th/id/OIP.YSJE-m47WRFAFX1JP1r2jgHaL3?pid=Api&P=0&h=180",
+//     price:"345/-"
+// }));
 root.render(bookele);
